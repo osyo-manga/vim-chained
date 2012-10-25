@@ -53,6 +53,11 @@ function! chained#function_name()
 endfunction
 
 
+function! chained#this_func()
+	return chained#called_func(1)
+endfunction
+
+
 function! chained#function(name)
 	let SNR = chained#to_SNR(chained#called_func(1))
 	let funcname = substitute(a:name, "s:", SNR, "g")
