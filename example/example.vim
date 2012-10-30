@@ -4,19 +4,19 @@
 function! s:local_function_scope()
 	" 関数名を取得
 	echo chained#function_name()
-	" => homu_func
+	" => local_function_scope
 
 	" SID を取得
 	echo chained#SID()
-	" => 404
+	" => 283
 
 	" SNR を含んだ関数名の取得
 	echo chained#function_symbol()
-	" => <SNR>404_homu_func
+	" => <SNR>283_local_function_scope
 
 	" <SNR>{SID}_ の取得
 	echo chained#SNR()
-	" => <SNR>404_
+	" => <SNR>283_
 endfunction
 call s:local_function_scope()
 
@@ -62,14 +62,14 @@ function! s:call_func4()
 	" 呼び出し履歴
 	" 左から順番に呼ばれた関数のリスト
 	echo chained#call_stack()
-	" => ['<SNR>404_call_func1', '<SNR>404_call_func2', 'g:call_func3', '<SNR>404_call_func4']
+	" => ['<SNR>283_call_func1', '<SNR>283_call_func2', 'g:call_func3', '<SNR>283_call_func4']
 
 	" 1つ前の関数を取得する
 	echo chained#called_func(1)
 	" => g:call_func3
 
 	echo chained#called_func(0)
-	" => <SNR>404_call_func4
+	" => <SNR>283_call_func4
 endfunction
 
 function! g:call_func3()
