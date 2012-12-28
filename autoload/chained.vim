@@ -88,5 +88,10 @@ function! chained#script_function_to_function_symbol(str, SNR)
 endfunction
 
 
+function! chained#is_function_cope()
+	return len(chained#call_stack()) != 1
+endfunction
+
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
