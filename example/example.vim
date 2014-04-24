@@ -22,10 +22,10 @@ call s:local_function_scope()
 
 
 " グローバル関数の場合
-function! g:global_function_scope()
+function! Global_function_scope()
 	" 関数名を取得
 	echo chained#function_name()
-	" => g:global_function_scope
+	" => Global_function_scope
 
 	" SID は取得できない
 	echo chained#SID()
@@ -33,9 +33,9 @@ function! g:global_function_scope()
 
 	" chained#function_name() と同様
 	echo chained#function_symbol()
-	" => g:global_function_scope
+	" => Global_function_scope
 endfunction
-call g:global_function_scope()
+call Global_function_scope()
 
 
 " 変換
@@ -62,22 +62,22 @@ function! s:call_func4()
 	" 呼び出し履歴
 	" 左から順番に呼ばれた関数のリスト
 	echo chained#call_stack()
-	" => ['<SNR>283_call_func1', '<SNR>283_call_func2', 'g:call_func3', '<SNR>283_call_func4']
+	" => ['<SNR>283_call_func1', '<SNR>283_call_func2', 'Call_func3', '<SNR>283_call_func4']
 
 	" 1つ前の関数を取得する
 	echo chained#called_func(1)
-	" => g:call_func3
+	" => Call_func3
 
 	echo chained#called_func(0)
 	" => <SNR>283_call_func4
 endfunction
 
-function! g:call_func3()
+function! Call_func3()
 	call s:call_func4()
 endfunction
 
 function! s:call_func2()
-	call g:call_func3()
+	call Call_func3()
 endfunction
 
 function! s:call_func1()
